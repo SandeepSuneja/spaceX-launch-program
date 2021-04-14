@@ -1,1 +1,44 @@
-<p>spacex-view works!</p>
+<div *ngIf="apiCommunicate.spaceXData.length > 0" class="spaceX-view-container">
+    <div *ngFor="let program of apiCommunicate.spaceXData; index as i" 
+        class="program-section" id="program-{{i}}">
+        <div class="program">
+            <div class="program-img">
+                <img src={{program.links.mission_patch}} />
+            </div>
+            <div class="top-bottom-margin"><b>{{program.mission_name}} #{{program.flight_number}}</b></div>
+            <div class="top-bottom-margin">
+                <b>Mission Ids:</b>
+                <ul *ngIf="program.mission_id.length > 0" class="small-size" id="mission-{{i}}">
+                    <li *ngFor="let id of program.mission_id">{{id}}</li>
+                </ul>
+                <span class="small-size" *ngIf="program.mission_id.length === 0">Not Applicable</span>
+            </div>
+            <div class="top-bottom-margin">
+                <b>Launch Year:</b> 
+                <span class="small-size">{{program.launch_year}}</span>
+            </div>
+            <div class="isSuccess top-bottom-margin">
+                <b>Successful Launch:</b> 
+                <span class="small-size">{{program.launch_success}}</span>
+            </div>
+            <div class="top-bottom-margin" 
+                *ngIf="program.land_success === null">
+                <b>Successful Landing:</b> 
+                <span class="small-size">Not Applicable</span>
+            </div>
+            <div class="top-bottom-margin" class="isSuccess">
+                <b>Successful Landing:</b> 
+                <span class="small-size" *ngIf="program.cores_land_success.length === 0">
+                    No Cores available
+                </span>
+                <ul *ngIf="program.cores_land_success && program.cores_land_success.length > 0">
+                    <li *ngFor="let core of program.cores_land_success">
+                        <span class="small-size">
+                            {{core.core_serial}} - {{core.land_success === null?'Not Applicable':core.land_success}}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

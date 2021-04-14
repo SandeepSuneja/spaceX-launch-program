@@ -1,1 +1,23 @@
-<p>spacex-filters works!</p>
+<div class="spacex-filter-container">
+    <div class="heading">Filters</div>
+    <div class="sub-filter-heading">Launch Year</div>
+    <hr />
+    <div class="years">
+        <div *ngFor="let year of years;index as i" 
+            class="spacex-filter-btn" id="year-{{i}}" 
+            (click)="setFilter(year, 'year')">{{year}}
+        </div>
+    </div>
+    <div class="sub-filter-heading">Successful Launch</div>
+    <hr />
+    <div class="launching">
+        <div class="spacex-filter-btn" id="launch-true" (click)="setFilter('true', 'launch')">True</div>
+        <div class="spacex-filter-btn" id="launch-false" (click)="setFilter('false', 'launch')">False</div>
+    </div>
+    <div class="sub-filter-heading">Successful Landing</div>
+    <hr />
+    <div class="landing">
+        <div class="spacex-filter-btn" id="land-true" (click)="setFilter('true', 'landing')">True</div>
+        <div class="spacex-filter-btn" id="land-false" (click)="setFilter('false', 'landing')">False</div>
+    </div>
+</div>

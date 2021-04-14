@@ -1,0 +1,29 @@
+.spacex-filter-container {
+    background-color: #fff;
+    padding:1rem;
+}
+.heading {
+    font-weight: bold;
+    margin:0.5rem 0;
+}
+.sub-filter-heading {
+    text-align: center;
+    color: #ccc;
+}
+.spacex-filter-btn {
+    background-color: #c5e09b;
+    padding:0.5rem 0;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    width:45%;
+    margin:2.5%;
+}
+.years, .launching, .landing {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+.highlight {
+    background-color: #7cba00;
+}
