@@ -61,6 +61,8 @@ export class SpacexFiltersComponent implements OnInit {
           data.cores_land_success[index] = {core_serial:core.core_serial, land_success:core.land_success};
         });
       });
+    },error => {
+      console.log(error);
     });
   }
 }
